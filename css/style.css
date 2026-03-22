@@ -2,7 +2,8 @@
 .app {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;   /* 🔥 ƏN VACİB */
+    flex-direction: column;
+    /* 🔥 ƏN VACİB */
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -32,7 +33,7 @@
     border-radius: 20px;
     backdrop-filter: blur(10px);
     background: rgba(2, 6, 23, 0.7);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .about h2 {
@@ -99,6 +100,21 @@
         0 0 40px rgba(56, 189, 248, 0.3);
 }
 
+.footer {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.6;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 0;
+}
+
 /* Animations */
 .hero {
     animation: fadeIn 1.5s ease-in-out, float 4s ease-in-out infinite;
@@ -109,6 +125,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -116,7 +133,15 @@
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
