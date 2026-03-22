@@ -2,12 +2,38 @@
 .app {
     min-height: 100vh;
     display: flex;
+    flex-direction: column; /* 🔥 ƏSAS FIX */
     align-items: center;
     justify-content: center;
-    background: var(--bg);
-    color: var(--text);
     text-align: center;
     font-family: Arial, sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at 30% 30%, #1e293b, #020617);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.about,
+.geostack {
+    background: #020617;
+    color: white;
+    text-align: center;
+}
+
+.about h2,
+.geostack h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.about p,
+.geostack p {
+    opacity: 0.7;
+    line-height: 1.6;
 }
 
 /* Components */
