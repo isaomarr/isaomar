@@ -1,96 +1,89 @@
 body {
-            font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            color: #f3f4f6;
-            overflow-x: hidden;
-        }
+    font-family: 'Inter', sans-serif;
+    background-color: #050505;
+    color: #f3f4f6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
+}
 
-        .neon-text-blue {
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
-        }
+.grid-bg {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
 
-        .neon-text-green {
-            text-shadow: 0 0 10px rgba(52, 211, 153, 0.5), 0 0 20px rgba(52, 211, 153, 0.3);
-        }
+.blob-1 {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
 
-        .grid-bg {
-            background-size: 50px 50px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-        }
+.blob-2 {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
 
-        .blob-1 {
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-        }
+.fade-in {
+    animation: fadeIn 1s ease-in forwards;
+    opacity: 0;
+}
 
-        .blob-2 {
-            position: absolute;
-            bottom: -10%;
-            right: -10%;
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-        }
+.slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
 
-        .fade-in {
-            animation: fadeIn 1s ease-in forwards;
-            opacity: 0;
-        }
+.delay-100 {
+    animation-delay: 100ms;
+}
 
-        .slide-up {
-            animation: slideUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
+.delay-200 {
+    animation-delay: 200ms;
+}
 
-        .delay-100 {
-            animation-delay: 100ms;
-        }
+.delay-300 {
+    animation-delay: 300ms;
+}
 
-        .delay-200 {
-            animation-delay: 200ms;
-        }
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
 
-        .delay-300 {
-            animation-delay: 300ms;
-        }
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
 
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.lang-active {
+    color: #38bdf8;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
 
-        .hover-glow:hover {
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-        }
-
-        .lang-active {
-            color: #38bdf8;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-        }
+footer {
+    margin-top: auto;
+}
