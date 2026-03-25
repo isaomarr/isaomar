@@ -1,3 +1,4 @@
+/* 1. Body-də hündürlük hesablamasını dəqiqləşdiririk */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #050505;
@@ -6,7 +7,22 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
+    /* Margin-i sıfırlamaq vacibdir */
+}
 
+/* 2. Footer-in özündən sonra boşluq buraxmamasını təmin edirik */
+footer {
+    margin-top: auto;
+    flex-shrink: 0;
+    /* Footer-in sıxılmasının qarşısını alırıq */
+    position: relative;
+    /* Blob-ların altına düşməməsi üçün */
+}
+
+/* 3. Footer daxilindəki sonuncu elementin margin-ini sıfırlayırıq */
+footer .mt-2.text-xs.text-gray-600 p {
+    margin-bottom: 0;
 }
 
 .grid-bg {
@@ -26,14 +42,10 @@ body {
 }
 
 .blob-2 {
-    position: absolute;
-    bottom: -10%;
-    right: -10%;
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-    border-radius: 50%;
-    z-index: -1;
+    pointer-events: none;
+    /* Klikləməyə mane olmasın */
+    bottom: 0;
+    /* Çox aşağı düşməsin */
 }
 
 .fade-in {
