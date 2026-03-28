@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="./css/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="data:,"/>
+    <link rel="icon" href="data:," />
 </head>
 
-<body class="antialiased relative selection:bg-cyan-500 selection:text-white">
+<body class="antialiased relative selection:bg-cyan-500 selection:text-white pb-20">
 
     <div class="blob-1 fixed"></div>
     <div class="blob-2 fixed"></div>
@@ -534,7 +534,29 @@
             </div>
         </section>
     </main>
-    <footer class="w-full border-t border-gray-800 bg-gray-950 py-10 flex flex-col items-center justify-center text-center">
+
+
+    <div id="contactModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center">
+
+        <div class="glass p-8 rounded-2xl border border-white/10 max-w-sm w-full relative text-center">
+
+            <button onclick="closeContactModal()" class="absolute top-3 right-4 text-gray-400 hover:text-white text-xl">
+                ✕
+            </button>
+
+            <h2 class="text-xl font-semibold mb-6 text-white">Contact</h2>
+
+            <div class="space-y-4 text-gray-300">
+
+                <p>📞 +994 51 632 52 00</p>
+                <p>📩 me@isaomar.com</p>
+
+            </div>
+
+        </div>
+    </div>
+    <footer
+        class="w-full border-t border-gray-800 bg-gray-950 py-10 flex flex-col items-center justify-center text-center">
         <div class="max-w-3xl mx-auto px-4 flex flex-col items-center gap-6">
             <div class="flex flex-col items-center gap-2">
                 <h2 class="text-xl font-medium text-gray-200 tracking-wide">Isa Omar</h2>
@@ -588,25 +610,57 @@
         </div>
     </footer>
 
-    <div id="contactModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center">
+    <div class="mobile-nav">
 
-        <div class="glass p-8 rounded-2xl border border-white/10 max-w-sm w-full relative text-center">
+        <div class="mobile-inner">
+            <a href="index.html" class="mobile-link">
+                <span>🏠</span>
+                Home
+            </a>
 
-            <button onclick="closeContactModal()" class="absolute top-3 right-4 text-gray-400 hover:text-white text-xl">
-                ✕
-            </button>
+            <a href="blog.html" class="mobile-link">
+                <span>📝</span>
+                Blog
+            </a>
 
-            <h2 class="text-xl font-semibold mb-6 text-white">Contact</h2>
+            <a href="index.html#projects" class="mobile-link">
+                <span>📁</span>
+                Projects
+            </a>
 
-            <div class="space-y-4 text-gray-300">
-
-                <p>📞 +994 51 632 52 00</p>
-                <p>📩 me@isaomar.com</p>
-
-            </div>
-
+            <a href="index.html#contact" class="mobile-link">
+                <span>📩</span>
+                Contact
+            </a>
         </div>
+
     </div>
+    <script>
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("text-cyan-400");
+
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("text-cyan-400");
+                }
+            });
+        });
+    </script>
+
+
+
 
 
     <script>
@@ -646,7 +700,25 @@
             document.getElementById("contactModal").classList.remove("flex");
         }
     </script>
-   
+    <script>
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const currentPath = window.location.pathname.split("/").pop();
+        const currentHash = window.location.hash;
+
+        mobileLinks.forEach(link => {
+            const href = link.getAttribute("href");
+
+            if (
+                href === currentPath ||
+                (href.includes("#") && currentHash && href.includes(currentHash))
+            ) {
+                link.classList.remove("text-gray-400");
+                link.classList.add("text-cyan-400");
+            }
+        });
+    </script>
+
 </body>
 
 </html>

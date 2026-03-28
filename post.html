@@ -1,47 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post - Isa Omar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+
+    <link rel="stylesheet" href="./css/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css">
 
 <body class="bg-gray-950 text-white">
 
     <div id="progressBar" class="fixed top-0 left-0 h-1 bg-cyan-400 z-50 w-0"></div>
 
     <!-- NAVBAR -->
+    <div class="blob-1 fixed"></div>
+    <div class="blob-2 fixed"></div>
+
     <nav class="fixed w-full z-50 glass border-b-0 border-white/10 top-0">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold tracking-tighter text-white neon-text-blue">ISA OMAR</a>
-
+            <a href="#" class="text-xl font-bold tracking-tighter text-white neon-text-blue">ISA OMAR</a>
             <div class="hidden md:flex space-x-8 text-sm text-gray-400 font-medium">
-                <a href="index.html#about" class="hover:text-cyan-400 translatable" data-en="About"
+                <a href="./index.html" class="hover:text-cyan-400 transition-colors translatable" data-en="About"
                     data-az="Haqqımda">About</a>
-
-                <a href="index.html#projects" class="hover:text-cyan-400 translatable" data-en="Projects"
+                <a href="./index.html" class="hover:text-cyan-400 transition-colors translatable" data-en="Projects"
                     data-az="Layihələr">Projects</a>
-
-                <a href="index.html#skills" class="hover:text-cyan-400 translatable" data-en="Skills"
+                <a href="./index.html" class="hover:text-cyan-400 transition-colors translatable" data-en="Skills"
                     data-az="Bacarıqlar">Skills</a>
-
-                <a href="blog.html" class="text-cyan-400 translatable" data-en="Blog" data-az="Bloq">Blog</a>
-
-                <a href="index.html#contact" class="hover:text-cyan-400 translatable" data-en="Contact"
+                <a href="./blog.html" class="hover:text-cyan-400 transition-colors translatable" data-en="Blog"
+                    data-az="Bloq">Blog</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors translatable" data-en="Contact"
                     data-az="Əlaqə">Contact</a>
             </div>
-
-            <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2 text-sm font-semibold text-gray-400">
                     <button onclick="setLang('en')" id="btn-en"
-                        class="hover:text-cyan-400 transition lang-active">EN</button>
+                        class="hover:text-cyan-400 transition-colors lang-active">EN</button>
                     <span>|</span>
-                    <button onclick="setLang('az')" id="btn-az" class="hover:text-cyan-400 transition">AZ</button>
+                    <button onclick="setLang('az')" id="btn-az"
+                        class="hover:text-cyan-400 transition-colors">AZ</button>
                 </div>
-
                 <a href="#contact"
-                    class="px-5 py-2 rounded-full border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 text-sm font-semibold translatable"
+                    class="px-5 py-2 rounded-full border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 transition-all text-sm font-semibold translatable"
                     data-en="Let's Talk" data-az="Əlaqə">Let's Talk</a>
             </div>
         </div>
@@ -81,6 +82,7 @@
 
         </div>
     </section>
+
 
     <footer
         class="w-full border-t border-gray-800 bg-gray-950 py-10 flex flex-col items-center justify-center text-center">
@@ -136,30 +138,49 @@
             </div>
         </div>
     </footer>
+    <div class="mobile-nav">
 
-    <div id="contactModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center">
+        <div class="mobile-inner">
+            <a href="index.html" class="mobile-link">
+                <span>🏠</span>
+                Home
+            </a>
 
-        <div class="glass p-8 rounded-2xl border border-white/10 max-w-sm w-full relative text-center">
+            <a href="blog.html" class="mobile-link">
+                <span>📝</span>
+                Blog
+            </a>
 
-            <button onclick="closeContactModal()" class="absolute top-3 right-4 text-gray-400 hover:text-white text-xl">
-                ✕
-            </button>
+            <a href="index.html#projects" class="mobile-link">
+                <span>📁</span>
+                Projects
+            </a>
 
-            <h2 class="text-xl font-semibold mb-6 text-white">Contact</h2>
-
-            <div class="space-y-4 text-gray-300">
-
-                <p>📞 +994 51 632 52 00</p>
-                <p>📩 me@isaomar.com</p>
-
-            </div>
-
+            <a href="index.html#contact" class="mobile-link">
+                <span>📩</span>
+                Contact
+            </a>
         </div>
+
     </div>
+
+    <script>
+        const links = document.querySelectorAll('nav a');
+        const current = window.location.pathname;
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === current ||
+                current.includes(link.getAttribute("href"))) {
+                link.classList.remove("text-gray-400");
+                link.classList.add("text-cyan-400");
+            }
+        });
+    </script>
+
 
     <script src="./js/post.js"></script>
     <script>
-   
+
 
         function toggleSkill(card) {
             const details = card.querySelector('.skill-details');
