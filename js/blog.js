@@ -27,6 +27,7 @@ const blogPosts = [
 
 // LANGUAGE SWITCH
 function setLang(lang) {
+  localStorage.setItem("lang", lang); // FIX
   document.documentElement.lang = lang;
 
   document.querySelectorAll('.translatable').forEach(el => {
@@ -60,7 +61,6 @@ function renderBlogs(lang = "en") {
       <span class="text-xs text-gray-500">${post.date}</span>
     `;
 
-    // CLICK → POST PAGE
     div.addEventListener("click", () => {
       window.location.href = `post.html?slug=${post.slug}`;
     });
@@ -69,8 +69,9 @@ function renderBlogs(lang = "en") {
   });
 }
 
-// INIT
+// INIT (FIX)
 document.addEventListener("DOMContentLoaded", () => {
-  renderBlogs("en");
+  const savedLang = localStorage.getItem("lang") || "en";
+  document.documentElement.lang = savedLang;
+  renderBlogs(savedLang);
 });
-

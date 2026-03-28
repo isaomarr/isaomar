@@ -12,7 +12,7 @@ function applyNavbarLang(lang) {
 }
 
 async function loadPost() {
-  const res = await fetch("./json/article.json");
+  const res = await fetch("/json/article.json");
   const data = await res.json();
 
   const params = new URLSearchParams(window.location.search);
