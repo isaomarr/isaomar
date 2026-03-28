@@ -1,0 +1,89 @@
+{
+  "what-is-map": {
+    "en": {
+      "title": "From Maps to Meaning: Building a Modern Geospatial Mindset",
+      "subtitle": "Understanding how geospatial intelligence transforms raw data into meaningful insights",
+      "author": "Isa Omar",
+      "content": [
+        {
+          "title": "Introduction",
+          "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=80",
+          "text": "In a world increasingly driven by data, location has emerged as one of the most powerful dimensions of understanding.\n\nEvery dataset gains deeper meaning when tied to geography. From climate monitoring to urban planning, geospatial technologies are no longer niche tools — they are foundational systems shaping decision-making across industries.\n\nUnderstanding where and why something happens transforms raw data into real insight."
+        },
+        {
+          "title": "From Static Maps to Living Systems",
+          "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+          "text": "Traditional maps were static and limited to a single moment in time.\n\nToday, geospatial systems are dynamic, powered by real-time data, satellite imagery, and cloud computing.\n\nMaps have evolved into living systems that continuously update and reflect real-world changes."
+        },
+        {
+          "title": "Thinking in Layers",
+          "image": "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80",
+          "text": "Geospatial analysis is built on layering different datasets.\n\nInfrastructure, population, and environmental data together reveal patterns that are invisible when analyzed separately.\n\nThis layered approach turns simple data into actionable intelligence."
+        },
+        {
+          "title": "From Visualization to Intelligence",
+          "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+          "text": "Modern GIS is no longer just about maps.\n\nWith AI and machine learning, systems can predict trends, detect anomalies, and simulate future scenarios.\n\nGeospatial tools are becoming intelligent decision-making systems."
+        },
+        {
+          "title": "Building a Geospatial Mindset",
+          "image": "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80",
+          "text": "A geospatial mindset means thinking spatially.\n\nIt involves asking where something happens, why it happens there, and how data connects through location.\n\nThis mindset unlocks deeper insights."
+        },
+        {
+          "title": "The Future is Spatial",
+          "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+          "text": "The future of technology is spatial.\n\nDigital twins, satellite systems, and cloud GIS are shaping a world where everything is mapped and analyzed in real time.\n\nGeospatial intelligence will be part of everyday systems."
+        },
+        {
+          "title": "Conclusion",
+          "image": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80",
+          "text": "Geospatial thinking is no longer optional — it is essential.\n\nUnderstanding the world through location enables smarter decisions and better systems.\n\nIt connects data with reality."
+        }
+      ]
+    },
+
+    "az": {
+      "title": "Xəritələrdən Məna Çıxarmağa: Müasir Geoməkan Düşüncəsinin Qurulması",
+      "subtitle": "Geoməkan intellektinin məlumatları necə dəyərli anlayışlara çevirdiyini anlamaq",
+      "author": "İsa Omar",
+      "content": [
+        {
+          "title": "Giriş",
+          "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=80",
+          "text": "Məlumatların hökm sürdüyü müasir dünyada məkan anlayışı ən güclü analiz vasitələrindən biridir.\n\nHər bir məlumat coğrafiya ilə əlaqələndirildikdə daha dərin məna qazanır.\n\nBu yanaşma qərarverməni daha güclü və effektiv edir."
+        },
+        {
+          "title": "Statik Xəritələrdən Dinamik Sistemlərə",
+          "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+          "text": "Ənənəvi xəritələr statik idi və yalnız bir zaman anını göstərirdi.\n\nMüasir geoməkan sistemlər isə real vaxt məlumatları ilə işləyir.\n\nXəritələr artıq dinamik və canlı sistemlərə çevrilmişdir."
+        },
+        {
+          "title": "Laylı Düşüncə",
+          "image": "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80",
+          "text": "Geoməkan analizində müxtəlif məlumat qatları birlikdə istifadə olunur.\n\nBu qatlar birlikdə analiz edildikdə gizli nümunələr ortaya çıxır.\n\nBu yanaşma məlumatı intellektə çevirir."
+        },
+        {
+          "title": "Vizualizasiyadan İntellektə",
+          "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+          "text": "GIS artıq sadəcə xəritə deyil.\n\nSüni intellekt ilə birlikdə bu sistemlər proqnozlaşdırma və analiz edə bilir.\n\nBu isə qərarverməni daha güclü edir."
+        },
+        {
+          "title": "Geoməkan Düşüncə",
+          "image": "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80",
+          "text": "Geoməkan düşüncə məkan əsaslı analiz etməyi tələb edir.\n\nHarada və niyə sualları əsas rol oynayır.\n\nBu yanaşma daha dərin anlayış yaradır."
+        },
+        {
+          "title": "Gələcək",
+          "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+          "text": "Gələcək məkan əsaslı texnologiyalara aiddir.\n\nRəqəmsal əkizlər və peyklər bu sahəni dəyişir.\n\nHər şey real vaxt analiz ediləcək."
+        },
+        {
+          "title": "Nəticə",
+          "image": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80",
+          "text": "Geoməkan düşüncə artıq zəruridir.\n\nBu yanaşma daha düzgün qərarlar verməyə imkan yaradır.\n\nMəlumatı reallıqla birləşdirir."
+        }
+      ]
+    }
+  }
+}
