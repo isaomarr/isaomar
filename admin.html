@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin · Isa Omar</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="./css/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        [data-view]:not(.active-view) { display: none !important; }
+
+        .ai {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: #fff;
+            font-size: 0.875rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .ai:focus { border-color: rgba(34,211,238,0.55); }
+        .ai::placeholder { color: rgba(156,163,175,0.45); }
+        textarea.ai { resize: vertical; min-height: 100px; }
+
+        .al {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: rgba(156,163,175,0.85);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 6px;
+        }
+
+        .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 600px) { .g2 { grid-template-columns: 1fr; } }
+
+        .bp {
+            padding: 8px 20px;
+            background: rgba(34,211,238,0.1);
+            border: 1px solid rgba(34,211,238,0.4);
+            color: rgb(34,211,238);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .bp:hover { background: rgba(34,211,238,0.2); }
+        .bp:disabled { opacity: 0.45; cursor: not-allowed; }
+
+        .bs {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(156,163,175,1);
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .bs:hover { background: rgba(255,255,255,0.09); color: #fff; }
+
+        .bd {
+            padding: 6px 12px;
+            background: rgba(239,68,68,0.08);
+            border: 1px solid rgba(239,68,68,0.28);
+            color: rgb(239,68,68);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+        .bd:hover { background: rgba(239,68,68,0.18); }
+
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .sec-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 12px;
+        }
+
+        .post-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            gap: 16px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+        .toast.success { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: rgb(34,197,94); }
+        .toast.error   { background: rgba(239,68,68,0.15);  border: 1px solid rgba(239,68,68,0.4);  color: rgb(239,68,68); }
+        .toast.info    { background: rgba(34,211,238,0.12); border: 1px solid rgba(34,211,238,0.35); color: rgb(34,211,238); }
+
+        .warn-box {
+            padding: 14px 16px;
+            background: rgba(251,191,36,0.08);
+            border: 1px solid rgba(251,191,36,0.25);
+            border-radius: 12px;
+            color: rgb(251,191,36);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .section-num {
+            display: inline-block;
+            background: rgba(34,211,238,0.12);
+            border: 1px solid rgba(34,211,238,0.3);
+            color: rgb(34,211,238);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        img.sec-preview {
+            margin-top: 8px;
+            border-radius: 10px;
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: none;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+    </style>
+</head>
+<body class="antialiased bg-[#050505] text-white min-h-screen relative">
+    <div class="blob-1 fixed"></div>
+    <div class="blob-2 fixed"></div>
+
+    <div id="toast" class="toast"></div>
+
+    <!-- ─────────── LOGIN ─────────── -->
+    <div data-view="login" class="active-view min-h-screen flex items-center justify-center relative z-10 px-4">
+        <div class="glass p-8 rounded-2xl border border-white/10 w-full max-w-sm">
+            <h1 class="text-2xl font-bold mb-1 neon-text-blue">ISA OMAR</h1>
+            <p class="text-gray-400 text-sm mb-8">Admin Panel</p>
+            <div id="loginErr" class="hidden mb-4 text-sm text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg p-3"></div>
+            <div class="space-y-4">
+                <div>
+                    <label class="al">Email</label>
+                    <input id="lEmail" type="email" class="ai" placeholder="me@isaomar.com" autocomplete="username">
+                </div>
+                <div>
+                    <label class="al">Şifrə</label>
+                    <input id="lPass" type="password" class="ai" placeholder="••••••••" autocomplete="current-password"
+                           onkeydown="if(event.key==='Enter')doLogin()">
+                </div>
+                <button class="bp" style="width:100%;padding:12px;font-size:15px;margin-top:4px;" onclick="doLogin()">
+                    Daxil ol
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─────────── SETUP (GitHub token) ─────────── -->
+    <div data-view="setup" class="relative z-10 max-w-2xl mx-auto px-6 py-12">
+        <div class="flex items-center gap-3 mb-8">
+            <button class="bs" onclick="showView('dash')">← Geri</button>
+            <h1 class="text-2xl font-bold">GitHub Tənzimləməsi</h1>
+        </div>
+        <div class="card space-y-5">
+            <div class="warn-box">
+                <p class="font-bold mb-2">Bu nə üçün lazımdır?</p>
+                <p>Admin panel məqalələri birbaşa GitHub reposuna yazır. Bütün ziyarətçilər yeni məqalələri görür.</p>
+                <p class="mt-3 font-semibold">Addımlar:</p>
+                <p>1. <a href="https://github.com/settings/tokens/new?scopes=repo&description=IsaOmar+Admin" target="_blank"
+                         class="underline">github.com/settings/tokens</a> → "Generate new token (classic)"</p>
+                <p>2. <strong>repo</strong> checkbox-ı seçin → "Generate token"</p>
+                <p>3. Yaranan <code class="bg-black/30 px-1 rounded">ghp_xxx...</code> tokeni aşağıya yapışdırın</p>
+            </div>
+            <div>
+                <label class="al">GitHub Personal Access Token</label>
+                <input id="sToken" type="password" class="ai" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+            </div>
+            <div class="g2">
+                <div>
+                    <label class="al">GitHub istifadəçi adı (owner)</label>
+                    <input id="sOwner" type="text" class="ai" value="isaomarr">
+                </div>
+                <div>
+                    <label class="al">Repository adı</label>
+                    <input id="sRepo" type="text" class="ai" value="isaomarr.github.io">
+                </div>
+            </div>
+            <div>
+                <label class="al">Branch</label>
+                <input id="sBranch" type="text" class="ai" value="main">
+            </div>
+            <div class="flex gap-3">
+                <button class="bp" style="padding:10px 24px;" onclick="doSaveSetup()">Yadda saxla</button>
+                <button class="bs" onclick="testConnection()">Bağlantını yoxla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─────────── DASHBOARD ─────────── -->
+    <div data-view="dash" class="relative z-10 max-w-4xl mx-auto px-6 py-12">
+        <div class="flex items-center justify-between mb-8 flex-wrap gap-3">
+            <div>
+                <h1 class="text-3xl font-bold neon-text-blue">Admin Panel</h1>
+                <p class="text-gray-400 text-sm mt-1">Blog idarəetməsi · <span id="dashSite">isaomar.com</span></p>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+                <button class="bp" onclick="showEditor(null)">+ Yeni Məqalə</button>
+                <button class="bs" onclick="openSetup()">⚙ GitHub</button>
+                <button class="bs" onclick="doLogout()">Çıxış</button>
+            </div>
+        </div>
+        <div id="dashMsg"></div>
+        <div id="dashList"></div>
+    </div>
+
+    <!-- ─────────── EDITOR ─────────── -->
+    <div data-view="editor" class="relative z-10 max-w-4xl mx-auto px-6 py-12">
+        <div class="flex items-center gap-3 mb-8 flex-wrap">
+            <button class="bs" onclick="showView('dash')">← Geri</button>
+            <h2 id="editorHeading" class="text-2xl font-bold">Yeni Məqalə</h2>
+        </div>
+
+        <div class="space-y-5">
+            <!-- Meta -->
+            <div class="card">
+                <p class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-4">Əsas məlumat</p>
+                <div class="g2 mb-4">
+                    <div>
+                        <label class="al">Slug (URL açarı)</label>
+                        <input id="eSlug" type="text" class="ai" placeholder="my-article-2026">
+                    </div>
+                    <div>
+                        <label class="al">Tarix</label>
+                        <input id="eDate" type="date" class="ai">
+                    </div>
+                </div>
+                <div>
+                    <label class="al">Müəllif</label>
+                    <input id="eAuthor" type="text" class="ai" value="Isa Omar">
+                </div>
+            </div>
+
+            <!-- Titles -->
+            <div class="card">
+                <p class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-4">Başlıqlar & Açıqlama</p>
+                <div class="g2 mb-4">
+                    <div>
+                        <label class="al">Başlıq (EN)</label>
+                        <input id="eTitleEn" type="text" class="ai" placeholder="Article Title in English" oninput="autoSlug()">
+                    </div>
+                    <div>
+                        <label class="al">Başlıq (AZ)</label>
+                        <input id="eTitleAz" type="text" class="ai" placeholder="Məqalə Başlığı">
+                    </div>
+                </div>
+                <div class="g2 mb-4">
+                    <div>
+                        <label class="al">Alt başlıq (EN)</label>
+                        <input id="eSubEn" type="text" class="ai" placeholder="Subtitle">
+                    </div>
+                    <div>
+                        <label class="al">Alt başlıq (AZ)</label>
+                        <input id="eSubAz" type="text" class="ai" placeholder="Alt başlıq">
+                    </div>
+                </div>
+                <div class="g2">
+                    <div>
+                        <label class="al">Blog kartı açıqlaması (EN)</label>
+                        <textarea id="eDescEn" class="ai" rows="2" placeholder="Short description shown on blog card..."></textarea>
+                    </div>
+                    <div>
+                        <label class="al">Blog kartı açıqlaması (AZ)</label>
+                        <textarea id="eDescAz" class="ai" rows="2" placeholder="Blog kartında görünəcək qısa açıqlama..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sections -->
+            <div class="card">
+                <div class="flex items-center justify-between mb-4">
+                    <p class="text-xs font-bold text-cyan-400 uppercase tracking-widest">Məqalə Bölmələri</p>
+                    <button class="bp" style="padding:6px 14px;font-size:12px;" onclick="addSection()">+ Bölmə əlavə et</button>
+                </div>
+                <div id="sectionsWrap"></div>
+                <p id="noSectionsMsg" class="text-gray-500 text-sm text-center py-4">
+                    Hələ bölmə yoxdur. "Bölmə əlavə et" düyməsindən istifadə edin.
+                </p>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex gap-3 justify-end flex-wrap">
+                <button class="bs" onclick="showView('dash')">Ləğv et</button>
+                <button id="saveBtn" class="bp" style="padding:12px 28px;font-size:15px;" onclick="doSaveArticle()">
+                    Saxla & Yayımla
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    'use strict';
+
+    // ── CREDENTIALS ─────────────────────────────────────────────────────────
+    const ADMIN_EMAIL = 'me@isaomar.com';
+    const ADMIN_PASS  = 'ISAida@1323';
+    const SESSION_KEY = 'isa_adm_v1';
+
+    // ── AUTH ─────────────────────────────────────────────────────────────────
+    function doLogin() {
+        const email = document.getElementById('lEmail').value.trim();
+        const pass  = document.getElementById('lPass').value;
+        const errEl = document.getElementById('loginErr');
+
+        if (email === ADMIN_EMAIL && pass === ADMIN_PASS) {
+            sessionStorage.setItem(SESSION_KEY, '1');
+            errEl.classList.add('hidden');
+            showView('dash');
+        } else {
+            errEl.textContent = 'Email və ya şifrə yanlışdır.';
+            errEl.classList.remove('hidden');
+        }
+    }
+
+    function doLogout() {
+        sessionStorage.removeItem(SESSION_KEY);
+        showView('login');
+    }
+
+    // ── VIEWS ────────────────────────────────────────────────────────────────
+    function showView(name) {
+        document.querySelectorAll('[data-view]').forEach(el => el.classList.remove('active-view'));
+        const el = document.querySelector(`[data-view="${name}"]`);
+        if (el) el.classList.add('active-view');
+        window.scrollTo(0, 0);
+        if (name === 'dash') loadDash();
+    }
+
+    function openSetup() {
+        document.getElementById('sToken').value  = localStorage.getItem('ghToken') || '';
+        document.getElementById('sOwner').value  = localStorage.getItem('ghOwner') || 'isaomarr';
+        document.getElementById('sRepo').value   = localStorage.getItem('ghRepo')  || 'isaomarr.github.io';
+        document.getElementById('sBranch').value = localStorage.getItem('ghBranch') || 'main';
+        showView('setup');
+    }
+
+    // ── GITHUB API ───────────────────────────────────────────────────────────
+    function ghCfg() {
+        const token  = localStorage.getItem('ghToken');
+        const owner  = localStorage.getItem('ghOwner')  || 'isaomarr';
+        const repo   = localStorage.getItem('ghRepo')   || 'isaomarr.github.io';
+        const branch = localStorage.getItem('ghBranch') || 'main';
+        if (!token) throw new Error('GitHub token tapılmadı. ⚙ GitHub düyməsindən əvvəlcə token daxil edin.');
+        return { token, owner, repo, branch,
+                 base: `https://api.github.com/repos/${owner}/${repo}/contents` };
+    }
+
+    function ghHeaders(cfg) {
+        return {
+            'Authorization': `token ${cfg.token}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+        };
+    }
+
+    async function ghGet(path) {
+        const cfg = ghCfg();
+        const res = await fetch(`${cfg.base}/${path}?ref=${cfg.branch}`, { headers: ghHeaders(cfg) });
+        if (res.status === 404) return null;
+        if (!res.ok) {
+            const e = await res.json().catch(() => ({}));
+            throw new Error(e.message || `GitHub API xətası: ${res.status}`);
+        }
+        const d = await res.json();
+        const bytes = Uint8Array.from(atob(d.content.replace(/\n/g, '')), c => c.charCodeAt(0));
+        const text  = new TextDecoder('utf-8').decode(bytes);
+        return { sha: d.sha, data: JSON.parse(text) };
+    }
+
+    async function ghPut(path, content, sha, message) {
+        const cfg = ghCfg();
+        const str   = JSON.stringify(content, null, 2);
+        const bytes = new TextEncoder().encode(str);
+        let   bin   = '';
+        for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+        const b64 = btoa(bin);
+
+        const body = { message, content: b64, branch: cfg.branch };
+        if (sha) body.sha = sha;
+
+        const res = await fetch(`${cfg.base}/${path}`, {
+            method: 'PUT',
+            headers: ghHeaders(cfg),
+            body: JSON.stringify(body)
+        });
+        if (!res.ok) {
+            const e = await res.json().catch(() => ({}));
+            throw new Error(e.message || `GitHub API xətası: ${res.status}`);
+        }
+        return res.json();
+    }
+
+    // ── SETUP ────────────────────────────────────────────────────────────────
+    function doSaveSetup() {
+        const token  = document.getElementById('sToken').value.trim();
+        const owner  = document.getElementById('sOwner').value.trim();
+        const repo   = document.getElementById('sRepo').value.trim();
+        const branch = document.getElementById('sBranch').value.trim();
+        if (!token) { toast('Token boş ola bilməz.', 'error'); return; }
+        localStorage.setItem('ghToken',  token);
+        localStorage.setItem('ghOwner',  owner  || 'isaomarr');
+        localStorage.setItem('ghRepo',   repo   || 'isaomarr.github.io');
+        localStorage.setItem('ghBranch', branch || 'main');
+        toast('Tənzimləmə saxlanıldı!', 'success');
+        showView('dash');
+    }
+
+    async function testConnection() {
+        const token  = document.getElementById('sToken').value.trim();
+        const owner  = document.getElementById('sOwner').value.trim() || 'isaomarr';
+        const repo   = document.getElementById('sRepo').value.trim()  || 'isaomarr.github.io';
+        if (!token) { toast('Əvvəlcə token daxil edin.', 'error'); return; }
+        toast('Yoxlanır...', 'info');
+        try {
+            const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+                headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+            });
+            if (res.ok) toast('Bağlantı uğurlu! ✓', 'success');
+            else toast('Xəta: token və ya repo adı yanlışdır.', 'error');
+        } catch (e) {
+            toast('Şəbəkə xətası: ' + e.message, 'error');
+        }
+    }
+
+    // ── DASHBOARD ────────────────────────────────────────────────────────────
+    async function loadDash() {
+        const msgEl  = document.getElementById('dashMsg');
+        const listEl = document.getElementById('dashList');
+        msgEl.innerHTML  = '<p class="text-gray-500 text-sm">Yüklənir...</p>';
+        listEl.innerHTML = '';
+
+        if (!localStorage.getItem('ghToken')) {
+            msgEl.innerHTML = `
+                <div class="warn-box mb-4">
+                    <p class="font-bold mb-1">GitHub tənzimləməsi tamamlanmayıb</p>
+                    <p>Məqalə paylaşmaq üçün əvvəlcə GitHub Personal Access Token daxil edin.</p>
+                    <button class="bp mt-3" onclick="openSetup()" style="padding:8px 18px;">⚙ Tənzimləməyə keç</button>
+                </div>`;
+            return;
+        }
+
+        try {
+            const metaRes = await ghGet('json/blog-meta.json');
+            const posts   = metaRes ? metaRes.data : [];
+            msgEl.innerHTML = '';
+
+            if (!posts.length) {
+                listEl.innerHTML = '<p class="text-gray-500 text-sm">Hələ admin məqaləsi yoxdur. + Yeni Məqalə düyməsinə basın.</p>';
+                return;
+            }
+
+            const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+            sorted.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'post-row';
+                div.innerHTML = `
+                    <div style="min-width:0;flex:1;">
+                        <p class="font-semibold text-white" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(p.title_en)}</p>
+                        <p class="text-xs text-gray-500 mt-1">${esc(p.slug)} · ${esc(p.date)}</p>
+                    </div>
+                    <div class="flex gap-2 shrink-0">
+                        <a href="post.html?slug=${esc(p.slug)}" target="_blank" class="bs" style="font-size:12px;padding:6px 12px;">Bax</a>
+                        <button class="bs" style="font-size:12px;padding:6px 12px;" onclick="showEditor('${esc(p.slug)}')">Düzəliş</button>
+                        <button class="bd" onclick="doDeletePost('${esc(p.slug)}')">Sil</button>
+                    </div>
+                `;
+                listEl.appendChild(div);
+            });
+        } catch (err) {
+            msgEl.innerHTML = `<p class="text-red-400 text-sm mb-4">⚠ ${esc(err.message)}</p>`;
+        }
+    }
+
+    async function doDeletePost(slug) {
+        if (!confirm(`"${slug}" məqaləsini silmək istəyirsiniz?`)) return;
+        toast('Silinir...', 'info');
+        try {
+            const [metaRes, artRes] = await Promise.all([
+                ghGet('json/blog-meta.json'),
+                ghGet('json/article.json')
+            ]);
+            const posts    = (metaRes ? metaRes.data : []).filter(p => p.slug !== slug);
+            const articles = artRes ? artRes.data : {};
+            delete articles[slug];
+
+            await Promise.all([
+                ghPut('json/blog-meta.json', posts,    metaRes?.sha, `Delete article: ${slug}`),
+                ghPut('json/article.json',   articles, artRes?.sha,  `Delete article content: ${slug}`)
+            ]);
+            toast('Məqalə silindi.', 'success');
+            loadDash();
+        } catch (err) {
+            toast('Xəta: ' + err.message, 'error');
+        }
+    }
+
+    // ── EDITOR ───────────────────────────────────────────────────────────────
+    let editingSlug = null;
+    let secIdx = 0;
+
+    async function showEditor(slug) {
+        editingSlug = slug;
+        secIdx = 0;
+        document.getElementById('sectionsWrap').innerHTML = '';
+        document.getElementById('noSectionsMsg').style.display = 'block';
+        document.getElementById('editorHeading').textContent = slug ? 'Məqaləni düzəlt' : 'Yeni Məqalə';
+        showView('editor');
+
+        if (!slug) {
+            document.getElementById('eSlug').value   = '';
+            document.getElementById('eDate').value   = new Date().toISOString().split('T')[0];
+            document.getElementById('eAuthor').value = 'Isa Omar';
+            document.getElementById('eTitleEn').value = '';
+            document.getElementById('eTitleAz').value = '';
+            document.getElementById('eSubEn').value  = '';
+            document.getElementById('eSubAz').value  = '';
+            document.getElementById('eDescEn').value = '';
+            document.getElementById('eDescAz').value = '';
+            return;
+        }
+
+        toast('Yüklənir...', 'info');
+        try {
+            const [metaRes, artRes] = await Promise.all([
+                ghGet('json/blog-meta.json'),
+                ghGet('json/article.json')
+            ]);
+            const post    = metaRes?.data.find(p => p.slug === slug);
+            const article = artRes?.data[slug];
+
+            if (post) {
+                document.getElementById('eSlug').value   = post.slug;
+                document.getElementById('eDate').value   = post.date;
+                document.getElementById('eTitleEn').value = post.title_en;
+                document.getElementById('eTitleAz').value = post.title_az;
+                document.getElementById('eDescEn').value  = post.desc_en;
+                document.getElementById('eDescAz').value  = post.desc_az;
+            }
+            if (article) {
+                const en = article.en || {};
+                const az = article.az || {};
+                document.getElementById('eAuthor').value = en.author || 'Isa Omar';
+                document.getElementById('eSubEn').value  = en.subtitle || '';
+                document.getElementById('eSubAz').value  = az.subtitle || '';
+                (en.content || []).forEach((s, i) => {
+                    const azSec = (az.content || [])[i] || {};
+                    addSection({
+                        title_en: s.title,
+                        title_az: azSec.title || '',
+                        image:    s.image || '',
+                        text_en:  s.text,
+                        text_az:  azSec.text || ''
+                    });
+                });
+            }
+            toast('Yükləndi.', 'success');
+        } catch (e) {
+            toast('Yüklənmə xətası: ' + e.message, 'error');
+        }
+    }
+
+    function autoSlug() {
+        if (editingSlug) return;
+        const v = document.getElementById('eTitleEn').value;
+        document.getElementById('eSlug').value = v.toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '').trim()
+            .replace(/\s+/g, '-').replace(/-+/g, '-');
+    }
+
+    function addSection(data = null) {
+        const id = secIdx++;
+        document.getElementById('noSectionsMsg').style.display = 'none';
+        const wrap = document.getElementById('sectionsWrap');
+        const div  = document.createElement('div');
+        div.className = 'sec-card';
+        div.id = `sec-${id}`;
+
+        const imgVal = data ? esc(data.image) : '';
+
+        div.innerHTML = `
+            <div class="flex justify-between items-center mb-4">
+                <span class="section-num">Bölmə ${id + 1}</span>
+                <button class="bd" onclick="removeSection(${id})">Sil</button>
+            </div>
+            <div class="g2 mb-3">
+                <div>
+                    <label class="al">Bölmə başlığı (EN)</label>
+                    <input type="text" class="ai sec-ten" placeholder="Section Title" value="${data ? esc(data.title_en) : ''}">
+                </div>
+                <div>
+                    <label class="al">Bölmə başlığı (AZ)</label>
+                    <input type="text" class="ai sec-taz" placeholder="Bölmə Başlığı" value="${data ? esc(data.title_az) : ''}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="al">Şəkil URL-i (Unsplash, imgur, vs.)</label>
+                <input type="url" class="ai sec-img" placeholder="https://images.unsplash.com/photo-..."
+                       value="${imgVal}" oninput="previewImg(this, ${id})">
+                <img id="prev-${id}" src="${imgVal}" class="sec-preview"
+                     style="${imgVal ? 'display:block;' : 'display:none;'}"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="g2">
+                <div>
+                    <label class="al">Mətn (EN)</label>
+                    <textarea class="ai sec-xen" rows="7" placeholder="Write section text in English...">${data ? data.text_en : ''}</textarea>
+                </div>
+                <div>
+                    <label class="al">Mətn (AZ)</label>
+                    <textarea class="ai sec-xaz" rows="7" placeholder="Bölmə mətnini Azərbaycanca yazın...">${data ? data.text_az : ''}</textarea>
+                </div>
+            </div>
+        `;
+        wrap.appendChild(div);
+        div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function previewImg(input, id) {
+        const img = document.getElementById(`prev-${id}`);
+        if (!img) return;
+        if (input.value) {
+            img.src = input.value;
+            img.style.display = 'block';
+            img.onerror = () => { img.style.display = 'none'; };
+        } else {
+            img.style.display = 'none';
+        }
+    }
+
+    function removeSection(id) {
+        document.getElementById(`sec-${id}`)?.remove();
+        if (!document.querySelectorAll('#sectionsWrap .sec-card').length) {
+            document.getElementById('noSectionsMsg').style.display = 'block';
+        }
+    }
+
+    function readSections() {
+        return [...document.querySelectorAll('#sectionsWrap .sec-card')].map(el => ({
+            title_en: el.querySelector('.sec-ten').value,
+            title_az: el.querySelector('.sec-taz').value,
+            image:    el.querySelector('.sec-img').value,
+            text_en:  el.querySelector('.sec-xen').value,
+            text_az:  el.querySelector('.sec-xaz').value
+        }));
+    }
+
+    async function doSaveArticle() {
+        const slug    = document.getElementById('eSlug').value.trim();
+        const date    = document.getElementById('eDate').value;
+        const author  = document.getElementById('eAuthor').value.trim() || 'Isa Omar';
+        const titleEn = document.getElementById('eTitleEn').value.trim();
+        const titleAz = document.getElementById('eTitleAz').value.trim();
+        const subEn   = document.getElementById('eSubEn').value.trim();
+        const subAz   = document.getElementById('eSubAz').value.trim();
+        const descEn  = document.getElementById('eDescEn').value.trim();
+        const descAz  = document.getElementById('eDescAz').value.trim();
+        const sections = readSections();
+
+        if (!slug)    { toast('Slug boş ola bilməz.', 'error'); return; }
+        if (!titleEn) { toast('Başlıq (EN) boş ola bilməz.', 'error'); return; }
+        if (!date)    { toast('Tarix seçin.', 'error'); return; }
+
+        const btn = document.getElementById('saveBtn');
+        btn.disabled = true;
+        btn.textContent = 'Yayımlanır...';
+        toast('GitHub-a göndərilir...', 'info');
+
+        try {
+            const [metaRes, artRes] = await Promise.all([
+                ghGet('json/blog-meta.json'),
+                ghGet('json/article.json')
+            ]);
+
+            // Blog listing meta
+            let posts = metaRes ? metaRes.data : [];
+            const postMeta = {
+                slug,
+                title_en: titleEn,
+                title_az: titleAz || titleEn,
+                desc_en:  descEn,
+                desc_az:  descAz || descEn,
+                date
+            };
+            const idx = posts.findIndex(p => p.slug === slug);
+            if (idx >= 0) posts[idx] = postMeta;
+            else posts.push(postMeta);
+
+            // Article content
+            let articles = artRes ? artRes.data : {};
+            articles[slug] = {
+                en: {
+                    title:    titleEn,
+                    subtitle: subEn,
+                    author,
+                    content:  sections.map(s => ({ title: s.title_en, image: s.image, text: s.text_en }))
+                },
+                az: {
+                    title:    titleAz || titleEn,
+                    subtitle: subAz   || subEn,
+                    author,
+                    content:  sections.map(s => ({
+                        title: s.title_az || s.title_en,
+                        image: s.image,
+                        text:  s.text_az  || s.text_en
+                    }))
+                }
+            };
+
+            await Promise.all([
+                ghPut('json/blog-meta.json', posts,    metaRes?.sha, `Article: ${slug}`),
+                ghPut('json/article.json',   articles, artRes?.sha,  `Article content: ${slug}`)
+            ]);
+
+            editingSlug = slug;
+            toast('Məqalə yayımlandı! GitHub Pages ~30 saniyəyə yenilənir.', 'success');
+            setTimeout(() => showView('dash'), 1200);
+        } catch (err) {
+            toast('Xəta: ' + err.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Saxla & Yayımla';
+        }
+    }
+
+    // ── UTILS ────────────────────────────────────────────────────────────────
+    function esc(s) {
+        return String(s ?? '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    let _toastTimer;
+    function toast(msg, type = 'success') {
+        const el = document.getElementById('toast');
+        el.textContent = msg;
+        el.className = `toast ${type}`;
+        void el.offsetWidth; // reflow
+        el.classList.add('show');
+        clearTimeout(_toastTimer);
+        _toastTimer = setTimeout(() => el.classList.remove('show'), 4000);
+    }
+
+    // ── INIT ─────────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+        if (sessionStorage.getItem(SESSION_KEY) === '1') {
+            showView('dash');
+        }
+    });
+    </script>
+</body>
+</html>
