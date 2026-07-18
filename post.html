@@ -7,12 +7,13 @@
     <title>Post - Isa Omar</title>
 
     <link rel="stylesheet" href="./css/output.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/style.css">
 
-<body class="bg-gray-950 text-white">
+<body class="bg-void-950 text-white">
 
-    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-cyan-400 z-50 w-0"></div>
+    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-gold-400 z-50 w-0"></div>
 
     <!-- NAVBAR -->
     <div class="blob-1 fixed"></div>
@@ -20,29 +21,32 @@
 
     <nav class="fixed w-full z-50 glass border-b-0 border-white/10 top-0">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-tighter text-white neon-text-blue">ISA OMAR</a>
-            <div class="hidden md:flex space-x-8 text-sm text-gray-400 font-medium">
-                <a href="./index.html" class="hover:text-cyan-400 transition-colors translatable" data-en="About"
+            <a href="#" class="font-display text-xl font-semibold tracking-wide text-white gold-text-glow">ISA
+                OMAR</a>
+            <div class="hidden md:flex space-x-8 text-sm text-ink-400 font-medium">
+                <a href="./index.html#about" class="hover:text-gold-300 transition-colors translatable" data-en="About"
                     data-az="Haqqımda">About</a>
-                <a href="./index.html" class="hover:text-cyan-400 transition-colors translatable" data-en="Projects"
-                    data-az="Layihələr">Projects</a>
-                <a href="./index.html" class="hover:text-cyan-400 transition-colors translatable" data-en="Skills"
+                <a href="./index.html#ventures" class="hover:text-gold-300 transition-colors translatable" data-en="Ventures"
+                    data-az="Şirkətlər">Ventures</a>
+                <a href="./index.html#projects" class="hover:text-gold-300 transition-colors translatable" data-en="Work"
+                    data-az="İşlər">Work</a>
+                <a href="./index.html#skills" class="hover:text-gold-300 transition-colors translatable" data-en="Skills"
                     data-az="Bacarıqlar">Skills</a>
-                <a href="./blog.html" class="hover:text-cyan-400 transition-colors translatable" data-en="Blog"
+                <a href="./blog.html" class="hover:text-gold-300 transition-colors translatable" data-en="Blog"
                     data-az="Bloq">Blog</a>
-                <a href="#contact" class="hover:text-cyan-400 transition-colors translatable" data-en="Contact"
+                <a href="#contact" class="hover:text-gold-300 transition-colors translatable" data-en="Contact"
                     data-az="Əlaqə">Contact</a>
             </div>
             <div class="flex items-center gap-6">
-                <div class="flex items-center gap-2 text-sm font-semibold text-gray-400">
+                <div class="flex items-center gap-2 text-sm font-semibold text-ink-400">
                     <button onclick="setLang('en')" id="btn-en"
-                        class="hover:text-cyan-400 transition-colors lang-active">EN</button>
+                        class="hover:text-gold-300 transition-colors lang-active">EN</button>
                     <span>|</span>
                     <button onclick="setLang('az')" id="btn-az"
-                        class="hover:text-cyan-400 transition-colors">AZ</button>
+                        class="hover:text-gold-300 transition-colors">AZ</button>
                 </div>
                 <a href="#contact"
-                    class="px-5 py-2 rounded-full border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 transition-all text-sm font-semibold translatable"
+                    class="px-5 py-2 rounded-full border border-gold-500/50 text-gold-300 hover:bg-gold-500/10 transition-all text-sm font-semibold translatable"
                     data-en="Let's Talk" data-az="Əlaqə">Let's Talk</a>
             </div>
         </div>
@@ -57,11 +61,11 @@
     <section id="contact" class="py-24 relative z-10">
         <div class="max-w-4xl mx-auto px-6 text-center">
 
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 translatable" data-en="Contact Me" data-az="Əlaqə">
+            <h2 class="font-display text-3xl md:text-5xl font-semibold mb-6 translatable" data-en="Contact Me" data-az="Əlaqə">
                 Contact Me
             </h2>
 
-            <p class="text-gray-400 mb-10 translatable" data-en="Feel free to reach out for collaborations or projects"
+            <p class="text-ink-400 mb-10 translatable" data-en="Feel free to reach out for collaborations or projects"
                 data-az="Əməkdaşlıq və layihələr üçün mənimlə əlaqə saxlayın">
                 Feel free to reach out for collaborations or projects
             </p>
@@ -69,12 +73,12 @@
             <div class="flex flex-col sm:flex-row justify-center gap-6">
 
                 <a href="tel:+994516325200"
-                    class="px-6 py-3 rounded-xl glass border border-white/10 hover:border-cyan-400 transition">
+                    class="px-6 py-3 rounded-xl glass border border-white/10 hover:border-gold-400 transition">
                     📞 +994 51 632 52 00
                 </a>
 
                 <a href="mailto:me@isaomar.com"
-                    class="px-6 py-3 rounded-xl glass border border-white/10 hover:border-emerald-400 transition">
+                    class="px-6 py-3 rounded-xl glass border border-white/10 hover:border-gold-400 transition">
                     📩 me@isaomar.com
                 </a>
 
@@ -85,17 +89,19 @@
 
 
     <footer
-        class="w-full border-t border-gray-800 bg-gray-950 py-10 flex flex-col items-center justify-center text-center">
+        class="w-full border-t border-gold-500/10 bg-void-950 py-10 flex flex-col items-center justify-center text-center">
         <div class="max-w-3xl mx-auto px-4 flex flex-col items-center gap-6">
             <div class="flex flex-col items-center gap-2">
-                <h2 class="text-xl font-medium text-gray-200 tracking-wide">Isa Omar</h2>
-                <p class="text-sm text-gray-400 tracking-widest uppercase">GIS Engineer • Remote Sensing • WebGIS
-                    Developer</p>
+                <h2 class="font-display text-xl font-medium text-ink-100 tracking-wide">Isa Omar</h2>
+                <p class="text-sm text-ink-400 tracking-widest uppercase translatable"
+                    data-en="Founder & CEO — GeoStack · GeoStack Academy · END Group"
+                    data-az="Təsisçi və CEO — GeoStack · GeoStack Academy · END Group">Founder & CEO —
+                    GeoStack · GeoStack Academy · END Group</p>
             </div>
 
             <div class="flex items-center gap-8">
                 <a href="https://github.com/isaomarr" target="_blank"
-                    class="text-slate-500 hover:text-white transition-colors">
+                    class="text-ink-500 hover:text-white transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="w-6 h-6">
@@ -104,7 +110,7 @@
                         <path d="M9 18c-4.51 2-5-2-7-2" />
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/isaomar/" class="text-gray-400 hover:text-blue-500 transition">
+                <a href="https://www.linkedin.com/in/isaomar/" class="text-ink-500 hover:text-gold-400 transition">
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                         <path
@@ -113,7 +119,7 @@
 
                 </a>
                 <a href="https://www.youtube.com/@isaomar" target="_blank" rel="noopener noreferrer"
-                    class="text-gray-500 hover:text-red-500 transition-colors duration-300 block" aria-label="YouTube">
+                    class="text-ink-500 hover:text-gold-400 transition-colors duration-300 block" aria-label="YouTube">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fill-rule="evenodd"
                             d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
@@ -121,7 +127,7 @@
                     </svg>
                 </a>
                 <a href="mailto:me@isaomar.com"
-                    class="text-gray-500 hover:text-green-400 transition-colors duration-300 block" aria-label="Email">
+                    class="text-ink-500 hover:text-gold-400 transition-colors duration-300 block" aria-label="Email">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                         <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
@@ -130,10 +136,11 @@
                 </a>
             </div>
 
-            <div class="mt-2 text-xs text-gray-600">
-                <p data-en="© 2026 Isa Omar. Built with Geospatial Intelligence."
-                    data-az="© 2026 Isa Omar. Coğrafi texnologiyalar ilə hazırlanıb.">
-                    © 2026 Isa Omar. Built with Geospatial Intelligence.
+            <div class="mt-2 text-xs text-ink-600">
+                <p data-en="© 2026 Isa Omar. Founder & CEO of GeoStack, GeoStack Academy, and END Group."
+                    data-az="© 2026 İsa Omar. GeoStack, GeoStack Academy və END Group-un Təsisçisi və CEO-su."
+                    class="translatable">
+                    © 2026 Isa Omar. Founder & CEO of GeoStack, GeoStack Academy, and END Group.
                 </p>
             </div>
         </div>
@@ -171,8 +178,8 @@
         links.forEach(link => {
             if (link.getAttribute("href") === current ||
                 current.includes(link.getAttribute("href"))) {
-                link.classList.remove("text-gray-400");
-                link.classList.add("text-cyan-400");
+                link.classList.remove("text-ink-400");
+                link.classList.add("text-gold-300");
             }
         });
     </script>

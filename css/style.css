@@ -1,8 +1,8 @@
 /* 1. Body-də hündürlük hesablamasını dəqiqləşdiririk */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #050505;
-    color: #f3f4f6;
+    background-color: #050403;
+    color: #ece7db;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -26,8 +26,8 @@ footer .mt-2.text-xs.text-gray-600 p {
 }
 
 .grid-bg {
-    background-size: 50px 50px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-image: linear-gradient(to right, rgba(201, 162, 76, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(201, 162, 76, 0.05) 1px, transparent 1px);
 }
 
 .blob-1 {
@@ -36,7 +36,7 @@ footer .mt-2.text-xs.text-gray-600 p {
     left: -10%;
     width: 50vw;
     height: 50vw;
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(201, 162, 76, 0.14) 0%, rgba(0, 0, 0, 0) 70%);
     border-radius: 50%;
     z-index: -1;
 }
@@ -46,6 +46,13 @@ footer .mt-2.text-xs.text-gray-600 p {
     /* Klikləməyə mane olmasın */
     bottom: 0;
     /* Çox aşağı düşməsin */
+    position: absolute;
+    right: -10%;
+    width: 45vw;
+    height: 45vw;
+    background: radial-gradient(circle, rgba(236, 231, 219, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
 }
 
 .fade-in {
@@ -84,16 +91,40 @@ footer .mt-2.text-xs.text-gray-600 p {
     }
 }
 
+/* Glassmorphism card — dark, gold hairline border */
+.glass {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(201, 162, 76, 0.16);
+}
+
 .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    box-shadow: 0 0 30px rgba(201, 162, 76, 0.14);
+    border-color: rgba(201, 162, 76, 0.45);
     transform: translateY(-5px);
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
+}
+
+/* Gold glow text used for the wordmark / hero accent */
+.gold-text-glow {
+    text-shadow: 0 0 18px rgba(201, 162, 76, 0.35);
+}
+
+.gold-hairline {
+    background: linear-gradient(90deg, transparent, rgba(201, 162, 76, 0.6), transparent);
+    height: 1px;
 }
 
 .lang-active {
-    color: #38bdf8;
+    color: #ddc17e;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    text-shadow: 0 0 10px rgba(201, 162, 76, 0.5);
+}
+
+::selection {
+    background: rgba(201, 162, 76, 0.35);
+    color: #f7f5f0;
 }
 
 footer {
@@ -114,10 +145,10 @@ footer {
     gap: 24px;
     padding: 12px 20px;
     border-radius: 16px;
-    background: rgba(10,10,10,0.8);
+    background: rgba(10,9,8,0.85);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 20px rgba(56,189,248,0.15);
+    border: 1px solid rgba(201, 162, 76, 0.18);
+    box-shadow: 0 0 20px rgba(201, 162, 76, 0.12);
 }
 
 .mobile-link {
@@ -125,7 +156,7 @@ footer {
     flex-direction: column;
     align-items: center;
     font-size: 12px;
-    color: #9ca3af;
+    color: #9c9483;
     text-decoration: none;
 }
 
